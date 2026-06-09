@@ -257,6 +257,35 @@ If you do not want to install a package, copy the helper files directly from the
 import { required } from './src/required.js';
 ```
 
+## Interactive Playground
+
+You can also open the visual playground to test each utility with real inputs and see the result immediately.
+
+Open:
+
+playground/index.html
+
+The playground includes examples for:
+
+- missing values
+- object checks
+- owned properties
+- array normalization
+- safe JSON parsing
+- finite number validation
+- promise timeout handling
+- allowed state validation
+
+To publish the playground:
+
+1. Go to repository Settings
+2. Open Pages
+3. Select branch: main
+4. Select folder: /root
+5. Save
+6. Open:
+   https://YOUR_USERNAME.github.io/tiny-js-bug-prevention-utils/playground/
+
 ## Contribution
 
 If you want to improve this companion repo, feel free to open a PR or add a suggestion. The goal is to keep these helpers practical, readable, and easy to use.

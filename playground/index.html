@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tiny JavaScript Utilities Playground</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Interactive playground</span>
+          <h1>Tiny JavaScript Utilities Playground</h1>
+          <p>
+            Test 8 small JavaScript utilities that prevent common bugs before they
+            spread through your app.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#utility-nav">View Utilities</a>
+            <a class="button button-secondary" href="https://github.com/masaud155/tiny-js-bug-prevention-utils" target="_blank" rel="noopener noreferrer">Open GitHub Repo</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="panel-label">Live utility preview</div>
+          <div class="hero-panel-card">
+            <p><strong>Run examples fast.</strong> See how each utility behaves with real inputs.</p>
+            <pre><code>required('value')</code></pre>
+          </div>
+        </div>
+      </header>
+
+      <section id="utility-nav" class="section utility-nav">
+        <h2>Jump to a utility</h2>
+        <div class="nav-grid">
+          <a href="#required-card">required</a>
+          <a href="#isPlainObject-card">isPlainObject</a>
+          <a href="#hasOwn-card">hasOwn</a>
+          <a href="#toArray-card">toArray</a>
+          <a href="#safeJsonParse-card">safeJsonParse</a>
+          <a href="#assertFiniteNumber-card">assertFiniteNumber</a>
+          <a href="#withTimeout-card">withTimeout</a>
+          <a href="#assertOneOf-card">assertOneOf</a>
+        </div>
+      </section>
+
+      <main class="section cards-grid">
+        <article id="required-card" class="card">
+          <div class="card-header">
+            <div>
+              <h3>required</h3>
+              <p>Verify a value is present and avoid missing-value failures.</p>
+            </div>
+            <span class="tag">Prevents missing values</span>
+          </div>
+          <p class="card-note">This helper throws when the value is null or undefined.</p>
+          <div class="control-row">
+            <label for="required-input">Value</label>
+            <input id="required-input" type="text" placeholder="Type a value or leave blank" />
+          </div>
+          <button id="required-run" class="button button-action">Check Required</button>
+          <div id="required-output" class="result-box"></div>
+          <pre class="code-block"><code>required(value, 'value')</code></pre>
+        </article>
+
+        <article id="isPlainObject-card" class="card">
+          <div class="card-header">
+            <div>
+              <h3>isPlainObject</h3>
+              <p>Confirm the input is a plain object, not an array or null.</p>
+            </div>
+            <span class="tag">Prevents unsafe object assumptions</span>
+          </div>
+          <p class="card-note">Supports JSON input like objects, arrays, strings, and null.</p>
+          <div class="control-row">
+            <label for="isPlainObject-input">JSON value</label>
+            <textarea id="isPlainObject-input" rows="4" placeholder='{"name":"Umar"}'></textarea>
+          </div>
+          <button id="isPlainObject-run" class="button button-action">Check Object</button>
+          <div id="isPlainObject-output" class="result-box"></div>
+          <pre class="code-block"><code>isPlainObject(value)</code></pre>
+        </article>
+
+        <article id="hasOwn-card" class="card">
+          <div class="card-header">
+            <div>
+              <h3>hasOwn</h3>
+              <p>Check whether an object owns a property without inherited keys.</p>
+            </div>
+            <span class="tag">Prevents prototype property mistakes</span>
+          </div>
+          <p class="card-note">Enter an object JSON and a property name to test ownership.</p>
+          <div class="control-row">
+            <label for="hasOwn-input">Object JSON</label>
+            <textarea id="hasOwn-input" rows="3" placeholder='{"name":"Asha","age":28}'></textarea>
+          </div>
+          <div class="control-row">
+            <label for="hasOwn-key">Property name</label>
+            <input id="hasOwn-key" type="text" placeholder="Enter property name" />
+          </div>
+          <button id="hasOwn-run" class="button button-action">Check Property</button>
+          <div id="hasOwn-output" class="result-box"></div>
+          <pre class="code-block"><code>hasOwn(object, key)</code></pre>
+        </article>
+
+        <article id="toArray-card" class="card">
+          <div class="card-header">
+            <div>
+              <h3>toArray</h3>
+              <p>Normalize null, single values, and arrays into a consistent array.</p>
+            </div>
+            <span class="tag">Prevents list handling errors</span>
+          </div>
+          <p class="card-note">Try values like null, "tag", or ["js","react"].</p>
+          <div class="control-row">
+            <label for="toArray-input">Input value</label>
+            <textarea id="toArray-input" rows="3" placeholder="null"></textarea>
+          </div>
+          <button id="toArray-run" class="button button-action">Convert to Array</button>
+          <div id="toArray-output" class="result-box"></div>
+          <pre class="code-block"><code>toArray(value)</code></pre>
+        </article>
+
+        <article id="safeJsonParse-card" class="card">
+          <div class="card-header">
+            <div>
+              <h3>safeJsonParse</h3>
+              <p>Parse JSON safely and return fallback when parsing fails.</p>
+            </div>
+            <span class="tag">Prevents JSON parse crashes</span>
+          </div>
+          <p class="card-note">Try valid JSON or invalid strings like {hello:}</p>
+          <div class="control-row">
+            <label for="safeJsonParse-input">Raw JSON string</label>
+            <textarea id="safeJsonParse-input" rows="4" placeholder='{"ok":true}'></textarea>
+          </div>
+          <button id="safeJsonParse-run" class="button button-action">Parse JSON</button>
+          <div id="safeJsonParse-output" class="result-box"></div>
+          <pre class="code-block"><code>safeJsonParse(jsonString, null)</code></pre>
+        </article>
+
+        <article id="assertFiniteNumber-card" class="card">
+          <div class="card-header">
+            <div>
+              <h3>assertFiniteNumber</h3>
+              <p>Validate that a value is a real finite number.</p>
+            </div>
+            <span class="tag">Prevents NaN and Infinity bugs</span>
+          </div>
+          <p class="card-note">Enter numbers like 42, 0.5, or invalid values like Infinity.</p>
+          <div class="control-row">
+            <label for="assertFiniteNumber-input">Number</label>
+            <input id="assertFiniteNumber-input" type="text" placeholder="Enter number" />
+          </div>
+          <button id="assertFiniteNumber-run" class="button button-action">Validate Number</button>
+          <div id="assertFiniteNumber-output" class="result-box"></div>
+          <pre class="code-block"><code>assertFiniteNumber(number, 'number')</code></pre>
+        </article>
+
+        <article id="withTimeout-card" class="card">
+          <div class="card-header">
+            <div>
+              <h3>withTimeout</h3>
+              <p>Wrap a promise so it rejects if it takes too long.</p>
+            </div>
+            <span class="tag">Prevents hanging async flows</span>
+          </div>
+          <p class="card-note">Select delay and timeout values to see success or failure.</p>
+          <div class="control-row">
+            <label for="withTimeout-delay">Task delay</label>
+            <select id="withTimeout-delay">
+              <option value="500">500ms</option>
+              <option value="1500">1500ms</option>
+              <option value="3000">3000ms</option>
+            </select>
+          </div>
+          <div class="control-row">
+            <label for="withTimeout-timeout">Timeout limit</label>
+            <select id="withTimeout-timeout">
+              <option value="1000">1000ms</option>
+              <option value="2000">2000ms</option>
+            </select>
+          </div>
+          <button id="withTimeout-run" class="button button-action">Run Async Task</button>
+          <div id="withTimeout-output" class="result-box"></div>
+          <pre class="code-block"><code>withTimeout(promise, timeoutMs)</code></pre>
+        </article>
+
+        <article id="assertOneOf-card" class="card">
+          <div class="card-header">
+            <div>
+              <h3>assertOneOf</h3>
+              <p>Check that a value matches one of the allowed options.</p>
+            </div>
+            <span class="tag">Prevents unknown state values</span>
+          </div>
+          <p class="card-note">Allowed values: pending, paid, failed.</p>
+          <div class="control-row">
+            <label for="assertOneOf-input">Status</label>
+            <input id="assertOneOf-input" type="text" placeholder="pending" />
+          </div>
+          <button id="assertOneOf-run" class="button button-action">Validate Status</button>
+          <div id="assertOneOf-output" class="result-box"></div>
+          <pre class="code-block"><code>assertOneOf(value, options, 'status')</code></pre>
+        </article>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
