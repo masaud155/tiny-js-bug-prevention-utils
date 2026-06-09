@@ -276,15 +276,6 @@ The playground includes examples for:
 - promise timeout handling
 - allowed state validation
 
-To publish the playground:
-
-1. Go to repository Settings
-2. Open Pages
-3. Select branch: main
-4. Select folder: /root
-5. Save
-6. Open:
-   https://YOUR_USERNAME.github.io/tiny-js-bug-prevention-utils/playground/
 
 ## Contribution
 
